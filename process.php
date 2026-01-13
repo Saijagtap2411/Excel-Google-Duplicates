@@ -11,7 +11,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 /* -----------------------------
    CONFIGURATION
 ----------------------------- */
-$spreadsheetId = '1T8l4oLQbAQlMUJ6oaTmq4gvKkQ2QtXpHQCmDsJP-yZE';
+$spreadsheetId = 'your_ID';
 $sheetRange    = 'mb fb data!A:G';
 
 /* -----------------------------
@@ -124,9 +124,10 @@ foreach ($duplicates as $number => $info) {
    7. SEND EXCEL TO BROWSER
 ----------------------------- */
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="duplicate_results.xlsx"');
+header('Content-Disposition: attachment;filename="yoursheetname.xlsx"');
 header('Cache-Control: max-age=0');
 
 $writer = IOFactory::createWriter($exportSpreadsheet, 'Xlsx');
 $writer->save('php://output');
 exit;
+
